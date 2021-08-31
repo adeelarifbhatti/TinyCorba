@@ -42,7 +42,7 @@ public class Servant extends GraphCoreTestPOA {
 	public String getCapital(String country) {
 		String outPut;
 		if(cC.containsKey(country)) {
-		outPut=cC.get(country).capital;
+		outPut=cC.get(country).getCapital();
 		//System.out.println("returning the Capital" +outPut);
 		return outPut;
 		}
