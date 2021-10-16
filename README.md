@@ -6,3 +6,4 @@ The Docker folder has the docker-compose.yml and Dockerfile. The jar files shoul
 It also has the API server on a different repository which makes use of this server as ORB (Server) and perform get/post method..
 
 
+The branch DB-Hibernate also make use of the mysql database and also saves the key/value pair in the mysql database.
