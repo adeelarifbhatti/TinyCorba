@@ -1,0 +1,25 @@
+version: "2.0"
+services:
+
+ server:
+  build:
+   context: .
+   dockerfile: Dockerfile
+  container_name: server
+  ports:
+  - "900:900"
+  # networks:
+  # - my-network
+ client:
+  build:
+   context: .
+   dockerfile: Dockerfile-client
+  depends_on:
+  - server
+  # stdin_open: true # docker run -i
+  # init: true
+  # tty: true        # docker run -t
+  # networks:
+  # - my-network
+
+

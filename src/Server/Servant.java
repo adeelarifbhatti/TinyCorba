@@ -2,9 +2,9 @@ package Server;
 
 import java.util.HashMap;
 
-import GraphCore.GraphCoreTestPOA;
+import CountryCapital.CountryCapitalTestPOA;
 
-public class Servant extends GraphCoreTestPOA {
+public class Servant extends CountryCapitalTestPOA {
 	private HashMap<String, String> cC = new HashMap<>();
 
 	@Override

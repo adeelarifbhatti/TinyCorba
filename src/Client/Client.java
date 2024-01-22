@@ -5,8 +5,8 @@ import org.omg.CORBA.ORB;
 import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
 
-import GraphCore.GraphCoreTest;
-import GraphCore.GraphCoreTestHelper;
+import CountryCapital.CountryCapitalTest;
+import CountryCapital.CountryCapitalTestHelper;
 
 
 public class Client {
@@ -16,7 +16,7 @@ public class Client {
 			ORB orb = ORB.init(args,null);			
 			org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
-			GraphCoreTest graphCoreTest = GraphCoreTestHelper.narrow(ncRef.resolve_str("GraphCore"));
+			CountryCapitalTest CountryCapitalTest = CountryCapitalTestHelper.narrow(ncRef.resolve_str("CountryCapital"));
 			
 			
 			scan = new Scanner(System.in);
@@ -32,7 +32,7 @@ public class Client {
 			
 			if(parts[0].equals("set")) {
 				String capital = parts[2];			
-				String data=graphCoreTest.putValues(country,capital);
+				String data=CountryCapitalTest.putValues(country,capital);
 			}
 				/*if(!data.equals("Done")) {
 				System.out.println("Something When Wrong");
@@ -40,7 +40,7 @@ public class Client {
 				 */
 			else if(parts[0].equals("get")) {
 			
-				String data2=graphCoreTest.getCapital(country);
+				String data2=CountryCapitalTest.getCapital(country);
 				if(data2.equals("not found")) {
 					System.out.println("error: not found");
 				}

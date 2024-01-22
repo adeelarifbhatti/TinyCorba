@@ -1,6 +1,6 @@
-module GraphCore
+module CountryCapital
 {
-	interface GraphCoreTest
+	interface CountryCapitalTest
 	{
 		string putValues(in string country, in string capital);
 		string getCapital(in string country);

@@ -1,9 +1,29 @@
-It makes use of Corba middleware, its a key-value memory server and client. 
-We should start the service orbd -ORBInitialHost 0.0.0.0 -ORBInitialPort 900 &.
-Jar file should be started as java  -jar /usr/local/tomcat/webapps/graphcore-Server.jar -ORBInitialPort 900 &
+# Corba "Key Value"
 
-The Docker folder has the docker-compose.yml and Dockerfile. The jar files should be saved in the Docker folder before running the docker-compose up
-It also has the API server on a different repository which makes use of this server as ORB (Server) and perform get/post method..
+It uses openjdk-8-jdk, later versions have discontinued the Corba support. The docker image is created by installing openjdk-8-jdk in ubuntu-latest, running idlj -fall CountryCapital.idl to get CountryCapital/ generated.
+
+### The "Key Value"
+
+With the client we can enter the key-value in the Hashmap. To enter the key value use following on the client
+
+###### java Client/Client -ORBInitialPort 900 -ORBInitialHost server
+###### set  Norway Oslo
+
+To retrieve the value enter the following command on the client
+
+###### java Client/Client -ORBInitialPort 900 -ORBInitialHost server
+###### get  Norway
 
 
-The branch DB-Hibernate also make use of the mysql database and also saves the key/value pair in the mysql database.
+In the client image following commands are run
+
+###### javac  Client/*.java
+###### javac CountryCapital/*.java
+
+ In the server image 900 is exposed and following commands are run
+
+###### javac  Server/*.java
+###### javac CountryCapital/*.java -ORBInitialPort 900 -ORBInitialHost server
+
+To run the app, just clone it and execute following command 
+#### docker-compose up
